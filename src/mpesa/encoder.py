@@ -1,0 +1,12 @@
+import base64
+import keys
+from access_token import generate_access_token
+
+
+def generate_password(formatted_time):
+    data_to_encode = keys.business_shortCode + keys.lipa_na_mpesa_passkey + formatted_time
+    encoded_string = base64.b64encode(data_to_encode.encode())
+    #print(encoded_string)
+    decoded_pwd =encoded_string.decode('utf-8')
+    #print(decoded_pwd)
+    return decoded_pwd
